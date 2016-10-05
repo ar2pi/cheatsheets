@@ -159,7 +159,7 @@ public function forwardAction($firstName, $lastName)
 ```twig
 {% block javascripts %}
     {{ parent() }}
-    {% javascripts '@AviaturPruebaBundle/Resources/public/js/prueba.js' %}
+    {% javascripts '@MDWDemoBundle/Resources/public/js/prueba.js' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock javascripts%}
@@ -369,7 +369,7 @@ $form = $this->createFormBuilder($task)
 $form->handleRequest($request);
 
 if ($form->isSubmitted() && $form->isValid()) {
-    $response = $this->forward('AviaturPruebaBundle:ToDoList:taskSuccess', array(
+    $response = $this->forward('MDWDemoBundle:ToDoList:taskSuccess', array(
       'task' => $task,
     ));
 
@@ -378,7 +378,7 @@ if ($form->isSubmitted() && $form->isValid()) {
 
 // if data was to be submitted to database, fetch it to create tasks list
 
-return $this->render($this->get("aviatur_agency_twig_folder")->twigExists('AviaturTwigBundle:' . $agencyFolder . '/Prueba/ToDoList/to_do_list.html.twig'), array(
+return $this->render($this->get("mdwdemobundle_twig_folder")->twigExists('MDWDemoBundle:' . $folder . '/Prueba/ToDoList/to_do_list.html.twig'), array(
     'form' => $form->createView(),
 ));
 ```
