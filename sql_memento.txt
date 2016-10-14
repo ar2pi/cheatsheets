@@ -1,0 +1,28 @@
+sudo mysql service status
+sudo mysql service start
+sudo mysql service stop
+
+mysql -u user -p connectdb
+mysql -h host -u user -p connectdb
+
+SQL:
+QUIT
+SHOW DATABASES;
+USE test
+SELECT DATABASE();
+SHOW TABLES;
+DESCRIBE pet;
+CREATE DATABASE pruebadb;
+SHOW TABLES;
+CREATE TABLE pet (name VARCHAR(20), owner VARCHAR(20),
+    -> species VARCHAR(20), sex CHAR(1), birth DATE, death DATE);
+You could create a text file pet.txt containing one record per line, with values separated by tabs, and given in the order in which the columns were listed in the CREATE TABLE statement. 
+LOAD DATA LOCAL INFILE '/path/pet.txt' INTO TABLE pet;
+INSERT INTO pet
+    -> VALUES ('Puffball','Diane','hamster','f','1999-03-30',NULL);
+SELECT * FROM pet;
+DROP TABLE news; // delete table
+DELETE FROM pet; // delete all rows in a table
+UPDATE pet SET birth = '1989-08-31' WHERE name = 'Bowser';
+ALTER TABLE Customer CHANGE Address Addr char(50); // rename row
+ALTER TABLE Customer MODIFY Addr char(30); // change row data type

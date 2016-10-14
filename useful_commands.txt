@@ -1,0 +1,89 @@
+Keybindings:
+ctrl + w = close term
+ctrl + c = cancel cmd
+ctrl + z = reprendre la main
+ctrl + d = eof
+ctrl + l = clear
+
+USEFUL KEYBINDINGS (Terminator)
+tab - autocomplete
+ctrl+z - stop process
+ctrl+l - clear terminal
+ctrl+shift+v - split terminal vertically
+ctrl+shift+h - split terminal horizontally
+ctrl+tab - switch to next terminal window
+ctrl+w - close terminal window
+ctrl+q - close terminal
+
+USEFUL COMMAND LINES
+
+File permissions
+sudo chown -R user:group /var/www/folder
+sudo chmod -R 755 folder
+sudo find * -type d -exec chmod +x {} \; // allow execution on all folders in current directory
+
+Create new group
+groupadd dev
+grep dev /etc/group // to confirm group exists
+Add user
+useradd -G dev jsmith
+Assign user
+usermod -g dev jsmith // change primary group of user
+usermod -a -G dev tony // append user to group
+id jsmith // to confirm user is in group
+sudo nano /etc/passwd // to check all existing users
+grep -i --color '^dev' /etc/group // to check members in group
+
+SSH:
+  côté serveur: 
+    sudo /etc/init.d/ssh start
+    sudo /etc/init.d/ssh stop
+  côté client
+    ssh login@ip
+    scp doc.txt login@ip:/home/login/documents/
+    scp login@ip:/home/login/documents/doc.txt /home/localuser/Documents/
+    rsync -arv --delete --backup --backup-dir=/home/mateo21/fichiers_supprimes Images/ mateo21@IP_du_serveur:mes_backups/ -e "ssh -p 12473"
+    logout
+
+rsync -arv Images/ backups/
+curl -s checkip.dyndns.org|sed -e 's/.*Current IP Address: //' -e 's/<.*$//'
+rm -rvf /path/to/directory/*
+
+top
+kill [PID]
+
+/* Run process in the background */
+ctrl+z
+bg
+disown -h
+exit
+
+cat /path/to/file
+head /path/to/file
+tail /path/to/file
+less /path/to/file
+
+man cmd
+cmd --help
+
+tar -zxvf compressed_archive.tar.gz
+tar -jxvf compressed_archive.tar.bz
+unzip file.zip -d destination_folders
+
+sudo dpkg -i skype-debian_4.3.0.37-1_i386.deb
+sudo dpkg -r skype-debian_4.3.0.37-1_i386
+
+sudo add-apt-repository ppa:obsproject/obs-studio
+sudo add-apt-repository --remove ppa:obsproject/obs-studio
+sudo apt-get update && sudo apt-get install obs-studio
+
+repository sources list:
+/etc/apt/sources.list
+
+sudo locate beets
+find beets
+grep beets
+
+echo $PATH
+
+ln -s /path/to/executable /usr/bin/executable
