@@ -34,6 +34,11 @@ id jsmith // to confirm user is in group
 sudo nano /etc/passwd // to check all existing users
 grep -i --color '^dev' /etc/group // to check members in group
 
+ifconfig
+ping google.com
+nslookup google.com
+traceroute google.com
+
 SSH:
   côté serveur: 
     sudo /etc/init.d/ssh start
