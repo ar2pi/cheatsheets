@@ -1,4 +1,4 @@
-﻿# Symfony cheatsheet
+# Symfony cheatsheet
 
 ### Create New Project:
 On windows:
