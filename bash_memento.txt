@@ -17,27 +17,22 @@ ctrl+q - close terminal
 
 USEFUL COMMAND LINES
 
-File permissions
+--- File permissions
 sudo chown -R user:group /var/www/folder
 sudo chmod -R 755 folder
 sudo find * -type d -exec chmod +x {} \; // allow execution on all folders in current directory
 
-Create new group
+--- Create new group
 groupadd dev
 grep dev /etc/group // to confirm group exists
-Add user
+--- Add user
 useradd -G dev jsmith
-Assign user
+--- Assign user
 usermod -g dev jsmith // change primary group of user
 usermod -a -G dev tony // append user to group
 id jsmith // to confirm user is in group
 sudo nano /etc/passwd // to check all existing users
 grep -i --color '^dev' /etc/group // to check members in group
-
-ifconfig
-ping google.com
-nslookup google.com
-traceroute google.com
 
 SSH:
   côté serveur: 
