@@ -1,12 +1,20 @@
 ﻿# Symfony cheatsheet
 
 ### Create New Project:
+On windows:
 ```dos
 php -r "readfile('https://symfony.com/installer');" > symfony
 move symfony c:\wamp\www
 cd wamp\www
 php symfony new ProjectName 2.8.2
 [OR] composer create-project symfony/framework-standard-edition ProjectName/ 2.8.2
+```
+On UNIX:
+```bash
+sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
+sudo chmod a+x /usr/local/bin/symfony
+cd path/to/projectdir
+symfony new sfproject
 ```
 
 ### List available commands
