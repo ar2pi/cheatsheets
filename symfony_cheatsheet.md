@@ -16,6 +16,10 @@ sudo chmod a+x /usr/local/bin/symfony
 cd path/to/projectdir
 symfony new sfproject
 ```
+Check symfony requirements:
+```bash
+php test_project/bin/symfony_requirements
+```
 
 ### List available commands
 ```dos
