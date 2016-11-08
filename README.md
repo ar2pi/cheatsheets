@@ -1,3 +1,3 @@
-# CheatSheets
+# cheatsheets
 
-Cheatsheets ftw!
+cheatsheets ftw!
