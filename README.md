@@ -1,2 +1,3 @@
-# cheatsheets
-cheatsheets ftw!
+# CheatSheets
+
+Cheatsheets ftw!
