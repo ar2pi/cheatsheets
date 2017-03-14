@@ -6,7 +6,10 @@ mysql -u user -p connectdb
 mysql -h host -u user -p connectdb
 
 SQL:
-QUIT
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON mydb.* TO 'myuser'@'%' WITH GRANT OPTION;
+SELECT User,Host FROM mysql.user; // list users
+QUIT;
 SHOW DATABASES;
 USE test
 SELECT DATABASE();
@@ -21,6 +24,7 @@ LOAD DATA LOCAL INFILE '/path/pet.txt' INTO TABLE pet;
 INSERT INTO pet
     -> VALUES ('Puffball','Diane','hamster','f','1999-03-30',NULL);
 SELECT * FROM pet;
+DROP DATABASE db_name;
 DROP TABLE news; // delete table
 DELETE FROM pet; // delete all rows in a table
 UPDATE pet SET birth = '1989-08-31' WHERE name = 'Bowser';
