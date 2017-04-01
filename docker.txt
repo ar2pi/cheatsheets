@@ -2,3 +2,4 @@ https://docs.docker.com/engine/reference/run/
 
 docker build .
 docker ps -a
+docker image ls -a
