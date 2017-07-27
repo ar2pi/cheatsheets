@@ -4,10 +4,9 @@
 $(document).ready(function() {
     $('#button').click(function() {
         var toAdd = $('input[name=checkListItem]').val();
-        $('.list').append('<div class="item">' + toAdd + '</div>');
-    });
-    $(document).on('click', '.item', function() {
-        $(this).remove();
+        $('.list').append('<div class="item">' + toAdd + '</div>').click(function() {
+            $(this).remove();
+        });
     });
 });
 
@@ -28,46 +27,36 @@ var $p = $("<p>I'm a paragraph!</p>")
 .css("", "")
 .html("")
 .val() //for form inputs
-.text() //any HTML elements
+.html() //any HTML elements
+.text() //some text
 .animate({left / top: '+/-=(px)'}, (ms))
-.effect('explode / bounce / slide / ...', ...)
-.accordion({...})
-.draggable()
-.resizable()
-.selectable()
-.sortable()
 .slideDown(ms) / .slideUp(ms)
+.effect('explode / bounce / slide / ...', ...) //jQuery UI
+.accordion({...}) //jQuery UI
+.draggable() //jQuery UI
+.resizable() //jQuery UI
+.selectable() //jQuery UI
+.sortable() //jQuery UI
 
-.click(function() {
+.click(function() {});
 
-});
+.dblclick(function() {});
 
-.dblclick(function() {
-
-});
-
-.hover(function() {
-    function(){
+.hover(
+    function() {
         $(this).addClass('active');
-    },
-    function(){
+    }, function() {
         $(this).removeClass('active');
     }
-});
+);
 
-.focus(function() {
+.focus(function() {});
 
-});
+.keydown(function() {});
 
-.keydown(function() {
+.keypress(function() {});
 
-});
-
-keypress() ?
-
-.keyup(function() {
-
-});
+.keyup(function() {});
 
 
 var main = function() {
@@ -159,3 +148,13 @@ var main = function() {
 };
 
 $(document).ready(main);
+
+jQuery.ajax({
+    url: ajaxUrl,
+    method: 'GET',
+    cache: true,
+    data: {term: someterm},
+    success: function (data, status, xhr) {},
+    error: function (xhr, status, error) {},
+    complete: function(xhr, status) {}
+});
