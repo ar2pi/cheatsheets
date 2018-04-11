@@ -1,5 +1,72 @@
-https://docs.docker.com/engine/reference/run/
+// https://docs.docker.com/reference/
+// https://docs.docker.com/engine/reference/run/
+// https://docs.docker.com/reference/commandline/cli
+// https://docs.docker.com/articles/security/
 
-docker build .
+docker images
+docker run -it(interactive terminal) [d(detach)|f(tail)] debian /bin/bash
+docker run -d -P(port) tomcat:7
 docker ps -a
-docker image ls -a
+dcoker start|stop [container id]
+docker exec -ti [container id] [cmd] (will start another process even if container already running)
+docker-compose run --service-ports -rm php sh (and exit; or ctrl P+Q to run in background)
+docker-compose run db sh
+docker rm [container id]
+docker rmi [image id]
+
+docker commit [container id] <username>/imagename:1.0
+docker push [repo:tag]
+docker tag <username>/imagename:1.0|[container id] <foo>/bar:1.1
+docker build -t <username>/imagename:1.0 path(.|projectpath) # to build from .Dockerfile
+
+# private registry
+docker run -d -p 5000:5000 registry:2.0
+docker tag [image id] localhost:5000/myfirstimage
+docker push localhost:5000/myfirstimage
+docker container stop registry && docker container rm -v registry
+
+# volumes
+docker run -d -P -v /myVolume nginx:1.7 # to mount /myVolume into container filesystem
+docker run -d -p 8080:80 (map ports) -v /myVolume nginx:1.7
+docker run -i -t -v /app/logs:/var/logs/nginx nginx:1.7 # map /app/logs from host to outputed /var/logs/nginx in container
+
+# linking containers
+docker run -d --name database postgres
+docker run -d -P --name website --link database:db nginx
+
+docker inspect somecontainer
+
+Dockerfile reference:
+// https://docs.docker.com/reference/builder
+
+FROM image:tag(debian:latest...)
+COPY /src /src
+RUN cmd(apt-get...)
+CMD cmd(default command to run, overridable by docker run)
+ENTRYPOINT ["cmd"](default command to run, not overridable, json format to accept arguments)
+VOLUME /containerVol (cannot map to host filesystem from .Dockerfile)
+EXPOSE 80 443 (ports)
+
+sudo service docker [stop|start|restart]
+or
+sudo docker -d & (run docker in daaemon mode)
+sudo kill $(pidof docker)
+
+Docker conf file located at: /etc/default/docker
+DOCKER_OPTS="--log-level debug" (log to /var/log/upstart/docker.log)
+sudo docker -d --log-level=debug (log written on terminal)
+
+# Docker Machine
+// https://docs.docker.com/machine/#drivers
+docker-machine create --driver provider testhost
+docker-machine create --driver digitalocean --digitalocean-access-token [access_token] host1
+docker-machine ls
+docker-machine ssh host1
+To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env host1
+
+# Docker Swarm
+// https://docs.docker.com/swarm/discovery
+
+# Docker compose
+// https://docs.docker.com/compose/cli
+// https://docs.docker.com/compose/yml
